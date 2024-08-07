@@ -33,7 +33,7 @@ find_package(libmavconn REQUIRED)
 find_package(eigen3_cmake_module REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(yaml-cpp REQUIRED)
-#find_package(yaml_cpp_vendor REQUIRED)
+find_package(yaml_cpp_vendor REQUIRED)
 
 ## Find GeographicLib
 # Append to CMAKE_MODULE_PATH since debian/ubuntu installs
@@ -164,6 +164,8 @@ add_library(mavros_extras SHARED
   # ]]]
   src/lib/servo_state_publisher.cpp
   # [[[end]]] (checksum: a3ce43c71c567f697861bcbcd0f25aa3)
+)
+add_library(mavros_extras PRIVATE
   yaml-cpp::yaml-cpp
 )
 ament_target_dependencies(mavros_extras
