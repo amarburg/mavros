@@ -57,6 +57,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(trajectory_msgs REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 include_directories(
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -164,6 +165,7 @@ add_dependencies(mavros_plugins
 )
 target_link_libraries(mavros_plugins
   mavros
+  yaml-cpp::yaml-cpp
 )
 ament_target_dependencies(mavros_plugins
   angles
