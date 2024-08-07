@@ -165,6 +165,7 @@ add_library(mavros_extras SHARED
   src/lib/servo_state_publisher.cpp
   # [[[end]]] (checksum: a3ce43c71c567f697861bcbcd0f25aa3)
 )
+target_link_libraries(mavros_extras yaml-cpp::yaml-cpp)
 ament_target_dependencies(mavros_extras
   rclcpp
   rclcpp_components
