@@ -32,8 +32,8 @@ find_package(libmavconn REQUIRED)
 
 find_package(eigen3_cmake_module REQUIRED)
 find_package(Eigen3 REQUIRED)
-# find_package(yaml_cpp REQUIRED)
-find_package(yaml_cpp_vendor REQUIRED)
+find_package(yaml-cpp REQUIRED)
+#find_package(yaml_cpp_vendor REQUIRED)
 
 ## Find GeographicLib
 # Append to CMAKE_MODULE_PATH since debian/ubuntu installs
@@ -132,6 +132,7 @@ add_library(mavros_extras_plugins SHARED
   src/plugins/wheel_odometry.cpp
   # [[[end]]] (checksum: 1f8cd51fa90b89b27ee35d276b5f8c83)
 )
+target_link_libraries(mavros_extras_plugins yaml-cpp::yaml-cpp)
 ament_target_dependencies(mavros_extras_plugins
   angles
   geometry_msgs
@@ -153,7 +154,7 @@ ament_target_dependencies(mavros_extras_plugins
   tf2_eigen
   message_filters
   Eigen3
-  yaml_cpp_vendor
+  #yaml_cpp_vendor
 )
 pluginlib_export_plugin_description_file(mavros mavros_plugins.xml)
 
@@ -163,6 +164,7 @@ add_library(mavros_extras SHARED
   # ]]]
   src/lib/servo_state_publisher.cpp
   # [[[end]]] (checksum: a3ce43c71c567f697861bcbcd0f25aa3)
+  yaml-cpp::yaml-cpp
 )
 ament_target_dependencies(mavros_extras
   rclcpp
@@ -171,7 +173,7 @@ ament_target_dependencies(mavros_extras
   sensor_msgs
   mavros_msgs
   #console_bridge
-  yaml_cpp_vendor
+  #yaml_cpp_vendor
   urdf
 )
 rclcpp_components_register_node(mavros_extras PLUGIN "mavros::extras::ServoStatePublisher" EXECUTABLE servo_state_publisher)
