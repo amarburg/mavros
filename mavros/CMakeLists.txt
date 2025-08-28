@@ -142,28 +142,14 @@ add_library(mavros_plugins SHARED
   src/plugins/altitude.cpp
   src/plugins/command.cpp
   src/plugins/dummy.cpp
-  src/plugins/ftp.cpp
-  src/plugins/geofence.cpp
-  src/plugins/global_position.cpp
-  src/plugins/home_position.cpp
   src/plugins/imu.cpp
-  src/plugins/local_position.cpp
   src/plugins/manual_control.cpp
   src/plugins/mission_protocol_base.cpp
-  src/plugins/nav_controller_output.cpp
   src/plugins/param.cpp
-  src/plugins/rallypoint.cpp
   src/plugins/rc_io.cpp
-  src/plugins/setpoint_accel.cpp
-  src/plugins/setpoint_attitude.cpp
-  src/plugins/setpoint_position.cpp
-  src/plugins/setpoint_raw.cpp
-  src/plugins/setpoint_trajectory.cpp
-  src/plugins/setpoint_velocity.cpp
   src/plugins/sys_status.cpp
   src/plugins/sys_time.cpp
   src/plugins/waypoint.cpp
-  src/plugins/wind_estimation.cpp
   # [[[end]]] (checksum: ccf56c1a56e9dccf8464483f7b1eab99)
 )
 add_dependencies(mavros_plugins

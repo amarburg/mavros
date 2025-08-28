@@ -92,44 +92,9 @@ add_library(mavros_extras_plugins SHARED
   # [[[cog:
   # mavros_cog.outl_glob_files('src/plugins')
   # ]]]
-  src/plugins/3dr_radio.cpp
-  src/plugins/adsb.cpp
-  src/plugins/cam_imu_sync.cpp
-  src/plugins/camera.cpp
-  src/plugins/cellular_status.cpp
-  src/plugins/companion_process_status.cpp
   src/plugins/debug_value.cpp
-  src/plugins/distance_sensor.cpp
-  src/plugins/esc_status.cpp
-  src/plugins/esc_telemetry.cpp
-  src/plugins/fake_gps.cpp
-  src/plugins/gimbal_control.cpp
-  src/plugins/gps_input.cpp
-  src/plugins/gps_rtk.cpp
-  src/plugins/gps_status.cpp
-  src/plugins/guided_target.cpp
-  src/plugins/hil.cpp
-  src/plugins/landing_target.cpp
-  src/plugins/log_transfer.cpp
-  src/plugins/mag_calibration_status.cpp
-  src/plugins/mocap_pose_estimate.cpp
-  src/plugins/mount_control.cpp
-  src/plugins/obstacle_distance.cpp
-  src/plugins/odom.cpp
-  src/plugins/onboard_computer_status.cpp
-  src/plugins/open_drone_id.cpp
-  src/plugins/optical_flow.cpp
-  src/plugins/play_tune.cpp
-  src/plugins/px4flow.cpp
-  src/plugins/rangefinder.cpp
-  src/plugins/terrain.cpp
-  src/plugins/trajectory.cpp
-  src/plugins/tunnel.cpp
-  src/plugins/vfr_hud.cpp
-  src/plugins/vibration.cpp
   src/plugins/vision_pose_estimate.cpp
   src/plugins/vision_speed_estimate.cpp
-  src/plugins/wheel_odometry.cpp
   # [[[end]]] (checksum: 4564d922cfa3d36bf2089dade2323259)
 )
 ament_target_dependencies(mavros_extras_plugins
