@@ -44,14 +44,14 @@ using utils::enum_value;
 // They are not exposed to user's code.
 namespace PSN
 {
-static constexpr const char * get_parameters = "~/get_parameters";
-static constexpr const char * get_parameter_types = "~/get_parameter_types";
-static constexpr const char * set_parameters = "~/set_parameters";
-static constexpr const char * set_parameters_atomically = "~/set_parameters_atomically";
-static constexpr const char * describe_parameters = "~/describe_parameters";
-static constexpr const char * list_parameters = "~/list_parameters";
+static constexpr const char * get_parameters = "~/param/get_parameters";
+static constexpr const char * get_parameter_types = "~/param/get_parameter_types";
+static constexpr const char * set_parameters = "~/param/set_parameters";
+static constexpr const char * set_parameters_atomically = "~/param/set_parameters_atomically";
+static constexpr const char * describe_parameters = "~/param/describe_parameters";
+static constexpr const char * list_parameters = "~/param/list_parameters";
 
-static constexpr const char * events = "/parameter_events";
+static constexpr const char * events = "/param/parameter_events";
 }  // namespace PSN
 
 /**
@@ -437,7 +437,7 @@ public:
     auto qos = rclcpp::ParametersQoS();
 #endif
 
-    param_event_pub = node->create_publisher<mavros_msgs::msg::ParamEvent>("~/event", event_qos);
+    param_event_pub = node->create_publisher<mavros_msgs::msg::ParamEvent>("~/param/event", event_qos);
     std_event_pub = node->create_publisher<rcl_interfaces::msg::ParameterEvent>(
       PSN::events,
       event_qos);
@@ -445,11 +445,11 @@ public:
     // Custom parameter services
     pull_srv =
       node->create_service<mavros_msgs::srv::ParamPull>(
-      "~/pull",
+      "~/param/pull",
       std::bind(&ParamPlugin::pull_cb, this, _1, _2), qos);
     set_srv =
       node->create_service<mavros_msgs::srv::ParamSetV2>(
-      "~/set",
+      "~/param/set",
       std::bind(&ParamPlugin::set_cb, this, _1, _2), qos);
 
     // Standard parameter services
