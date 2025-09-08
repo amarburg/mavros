@@ -179,6 +179,10 @@ public:
     RCLCPP_INFO(get_logger(), "Known MAVLink dialects:%s", ss.str().c_str());
     RCLCPP_INFO(get_logger(), "MAVROS Router started");
 
+    this->declare_parameter<StrV>("fcu_urls", StrV());
+    this->declare_parameter<StrV>("gcs_urls", StrV());
+    this->declare_parameter<StrV>("uas_urls", StrV());
+
     // This must be run _after_ the constructor has finished
     //
     // Repeat the pattern from mavros_uas of using a delay timer
@@ -227,10 +231,6 @@ private:
     startup_delay_timer->cancel();
     set_parameters_handle_ptr =
       this->add_on_set_parameters_callback(std::bind(&Router::on_set_parameters_cb, this, _1));
-
-    this->declare_parameter<StrV>("fcu_urls", StrV());
-    this->declare_parameter<StrV>("gcs_urls", StrV());
-    this->declare_parameter<StrV>("uas_urls", StrV());
   }
 
   rcl_interfaces::msg::SetParametersResult on_set_parameters_cb(
