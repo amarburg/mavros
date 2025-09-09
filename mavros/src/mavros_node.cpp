@@ -63,6 +63,8 @@ int main(int argc, char * argv[])
 
   RCLCPP_INFO(node->get_logger(), "Starting mavros router node");
   auto router_node = std::make_shared<mavros::router::Router>(options, "mavros_router");
+  router_node->initialize_parameters();
+ 
   exec.add_node(router_node);
 
   {
